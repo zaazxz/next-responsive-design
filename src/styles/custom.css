@@ -1,72 +1,71 @@
-main {
-    display: flex;
-}
-
-sidebar {
-    background-color : #007bff;
-    color : white;
-}
-
-footbar {
-    background-color : #007bff;
-    color : white;
+/* Mobile Sidebar : Start */
+.mobile-sidebar {
+    color: white;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    height: 50px;
-    padding: 10px;
+    height: 100px;
+    background: linear-gradient(to top, #007bff 60px, rgba(0, 0, 0, 0) 0px);
 }
 
-/* Media Query */
-@media (min-width: 1024px) {
-    sidebar {
-        height: 100dvh;
-        width: 500px;
-    }
-
-    .hidden-sidebar {
-        margin-left: -400px;
-        transition: margin-left 0.5s ease;
-    }
-
-    .open-sidebar {
-        margin-left: 0;
-        transition: margin-left 0.5s ease;
-    }
-
+i.icon-mobile-sidebar {
+    color: #007bff;
+    background-color: white;
+    padding: 6%;
+    border-radius: 50px;
+    transition: 0.5s;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    sidebar {
-        height: 100vh;
-        width: 100px;
-    }
-
-    .hidden-sidebar {
-        width: 100px;
-        height: 100vh;
-    }
-
-    .open-sidebar {
-        width: 100px;
-        height: 100vh;
-    }
-
+i.icon-mobile-sidebar:hover {
+    margin-top: -20px;
+    color: white;
+    background-color: #007bff;
+    transition: 0.5s;
 }
 
-@media (max-width: 767px) {
-    sidebar {
-        height: 100dvh;
-        width: 500px;
-    }
- 
-    .hidden-sidebar {
-        margin-left: -400px;
-        transition: margin-left 0.5s ease;
-    }
-
-    .open-sidebar {
-        margin-left: 0;
-        transition: margin-left 0.5s ease;
-    }
+i.icon-mobile-sidebar.active {
+    color: white;
+    background-color: #007bff;
 }
+/* Mobile Sidebar : End */
+
+/* Table Sidebar : Start */
+.tablet-sidebar {
+    background-color: #007bff;
+    height: 100vh;
+    color: white;
+    width: 12%;
+}
+
+.logo-tablet-sidebar {
+    margin-top: 25px;
+}
+
+.divider {
+    background-color: white;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.icon-tablet-sidebar {
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #007bff;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+i.icon-tablet-sidebar.active {
+    color: #007bff;
+    background-color: white;
+}
+
+i.icon-tablet-sidebar:hover {
+    color: #007bff;
+    background-color: white;
+    transition: 0.5s;
+}
+/* Table Sidebar : End */

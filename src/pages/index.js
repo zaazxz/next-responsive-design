@@ -1,18 +1,19 @@
 // Component
 import Head from "next/head";
 import useWindowSize from "../helper/useWindowsSize";
+import TabletSidebar from "@/components/sidebar/Tablet";
+import MobileSidebar from "../components/sidebar/Mobile";
 
 // Function
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  
-  // Stating Management
-  const [sidebar, setSidebar] = useState(true);
 
   // Variable
   const size = useWindowSize();
-  const tablet = size.width < 1024 && size.width > 767;
+  const desktopSize = size.width >= 1024;
+  const tabletSize = size.width <= 1023 && size.width >= 768;
+  const mobileSize = size.width <= 767;
 
   return (
     <>
@@ -27,50 +28,17 @@ export default function Home() {
       {/* Main Content */}
       <main>
         
-        {/* Desktop Size */}
-        {size.width > 1023 && (
+        {/* Desktop Sidebar */}
+        {desktopSize && <TabletSidebar />}
 
-          /* Sidebar */
-          <sidebar className={sidebar ? "open-sidebar" : "hidden-sidebar"}>
-            <div className="container-fluid border border-dark row">
-        
-              {/* Text */}
-              <p className="text col-10 border mt-3">test</p>
+        {/* Tablet Sidebar */}
+        {tabletSize && <TabletSidebar />}
 
-              {/* Icon */}
-              <p className="icon col-2 border mt-3 text-center">icon</p>
-      
-            </div>
-          </sidebar>
-
-        )}
-
-        {/* Tablet Size */}
-        {tablet && (
-          <sidebar className="hidden-sidebar">
-              <p className="icon p-3 text-center border mt-3">icon</p>
-          </sidebar>
-        )}
-
-        {/* Mobile Size */}
-        {size.width < 768 && (
-          <footbar>
-            ayam
-          </footbar>
-        )}
+        {/* Mobile Sidebar */}
+        {mobileSize && <MobileSidebar />}
 
         {/* Content */}
         <section>
-          {size.width >= 1024 && (
-            <button
-              className="btn btn-primary m-3"
-              onClick={() => setSidebar(!sidebar)}
-            >
-              Click
-            </button>
-          )}
-
-          ppte
         </section>
       </main>
     </>
